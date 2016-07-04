@@ -1,0 +1,499 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceApplication
+  Name="LightSwitchServiceApplication" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <ServiceApplication.Attributes>
+    <Partial />
+  </ServiceApplication.Attributes>
+  <EntityType
+    Name="database_firewall_rule">
+    <EntityType.Methods>
+      <EntityMethod
+        Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty
+        Name="id"
+        IsReadOnly="True"
+        PropertyType=":Int32">
+        <KeyProperty.Attributes>
+          <Hidden />
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <KeyProperty
+        Name="name"
+        PropertyType=":String">
+        <KeyProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="128" />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <KeyProperty
+        Name="start_ip_address"
+        PropertyType=":String">
+        <KeyProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="45" />
+          <AnsiConstraint />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <KeyProperty
+        Name="end_ip_address"
+        PropertyType=":String">
+        <KeyProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="45" />
+          <AnsiConstraint />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <KeyProperty
+        Name="create_date"
+        PropertyType=":DateTime">
+        <KeyProperty.Attributes>
+          <Required />
+          <DateTimeConstraint
+            Precision="3"
+            PreserveSeconds="True" />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <KeyProperty
+        Name="modify_date"
+        PropertyType=":DateTime">
+        <KeyProperty.Attributes>
+          <Required />
+          <DateTimeConstraint
+            Precision="3"
+            PreserveSeconds="True" />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+    </EntityType.Properties>
+  </EntityType>
+  <EntityContainer
+    Name="scorebanner21Data">
+    <EntityContainer.Attributes>
+      <Partial />
+    </EntityContainer.Attributes>
+    <EntitySet
+      Name="database_firewall_rules"
+      EntityType="database_firewall_rule" />
+    <QueryOperation
+      Name="database_firewall_rules_Single"
+      ReturnType="database_firewall_rule">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="And">
+            <BinaryExpression.Left>
+              <BinaryExpression
+                NodeType="And">
+                <BinaryExpression.Left>
+                  <BinaryExpression
+                    NodeType="And">
+                    <BinaryExpression.Left>
+                      <BinaryExpression
+                        NodeType="And">
+                        <BinaryExpression.Left>
+                          <BinaryExpression
+                            NodeType="And">
+                            <BinaryExpression.Left>
+                              <BinaryExpression
+                                NodeType="Equal">
+                                <BinaryExpression.Left>
+                                  <ChainExpression>
+                                    <MemberExpression
+                                      Member="modify_date" />
+                                  </ChainExpression>
+                                </BinaryExpression.Left>
+                                <BinaryExpression.Right>
+                                  <ParameterExpression
+                                    Parameter="modify_date" />
+                                </BinaryExpression.Right>
+                              </BinaryExpression>
+                            </BinaryExpression.Left>
+                            <BinaryExpression.Right>
+                              <BinaryExpression
+                                NodeType="Equal">
+                                <BinaryExpression.Left>
+                                  <ChainExpression>
+                                    <MemberExpression
+                                      Member="create_date" />
+                                  </ChainExpression>
+                                </BinaryExpression.Left>
+                                <BinaryExpression.Right>
+                                  <ParameterExpression
+                                    Parameter="create_date" />
+                                </BinaryExpression.Right>
+                              </BinaryExpression>
+                            </BinaryExpression.Right>
+                          </BinaryExpression>
+                        </BinaryExpression.Left>
+                        <BinaryExpression.Right>
+                          <BinaryExpression
+                            NodeType="Equal">
+                            <BinaryExpression.Left>
+                              <ChainExpression>
+                                <MemberExpression
+                                  Member="end_ip_address" />
+                              </ChainExpression>
+                            </BinaryExpression.Left>
+                            <BinaryExpression.Right>
+                              <ParameterExpression
+                                Parameter="end_ip_address" />
+                            </BinaryExpression.Right>
+                          </BinaryExpression>
+                        </BinaryExpression.Right>
+                      </BinaryExpression>
+                    </BinaryExpression.Left>
+                    <BinaryExpression.Right>
+                      <BinaryExpression
+                        NodeType="Equal">
+                        <BinaryExpression.Left>
+                          <ChainExpression>
+                            <MemberExpression
+                              Member="start_ip_address" />
+                          </ChainExpression>
+                        </BinaryExpression.Left>
+                        <BinaryExpression.Right>
+                          <ParameterExpression
+                            Parameter="start_ip_address" />
+                        </BinaryExpression.Right>
+                      </BinaryExpression>
+                    </BinaryExpression.Right>
+                  </BinaryExpression>
+                </BinaryExpression.Left>
+                <BinaryExpression.Right>
+                  <BinaryExpression
+                    NodeType="Equal">
+                    <BinaryExpression.Left>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="name" />
+                      </ChainExpression>
+                    </BinaryExpression.Left>
+                    <BinaryExpression.Right>
+                      <ParameterExpression
+                        Parameter="name" />
+                    </BinaryExpression.Right>
+                  </BinaryExpression>
+                </BinaryExpression.Right>
+              </BinaryExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <BinaryExpression
+                NodeType="Equal">
+                <BinaryExpression.Left>
+                  <ChainExpression>
+                    <MemberExpression
+                      Member="id" />
+                  </ChainExpression>
+                </BinaryExpression.Left>
+                <BinaryExpression.Right>
+                  <ParameterExpression
+                    Parameter="id" />
+                </BinaryExpression.Right>
+              </BinaryExpression>
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="database_firewall_rules" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="id"
+        ParameterType="Microsoft.LightSwitch:Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+      <QueryOperationParameter
+        Name="name"
+        ParameterType="Microsoft.LightSwitch:String?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'name' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+      <QueryOperationParameter
+        Name="start_ip_address"
+        ParameterType="Microsoft.LightSwitch:String?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'start_ip_address' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+      <QueryOperationParameter
+        Name="end_ip_address"
+        ParameterType="Microsoft.LightSwitch:String?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'end_ip_address' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+      <QueryOperationParameter
+        Name="create_date"
+        ParameterType="Microsoft.LightSwitch:DateTime?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'create_date' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+      <QueryOperationParameter
+        Name="modify_date"
+        ParameterType="Microsoft.LightSwitch:DateTime?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'modify_date' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="database_firewall_rules_SingleOrDefault"
+      ReturnType="database_firewall_rule">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="And">
+            <BinaryExpression.Left>
+              <BinaryExpression
+                NodeType="And">
+                <BinaryExpression.Left>
+                  <BinaryExpression
+                    NodeType="And">
+                    <BinaryExpression.Left>
+                      <BinaryExpression
+                        NodeType="And">
+                        <BinaryExpression.Left>
+                          <BinaryExpression
+                            NodeType="And">
+                            <BinaryExpression.Left>
+                              <BinaryExpression
+                                NodeType="Equal">
+                                <BinaryExpression.Left>
+                                  <ChainExpression>
+                                    <MemberExpression
+                                      Member="modify_date" />
+                                  </ChainExpression>
+                                </BinaryExpression.Left>
+                                <BinaryExpression.Right>
+                                  <ParameterExpression
+                                    Parameter="modify_date" />
+                                </BinaryExpression.Right>
+                              </BinaryExpression>
+                            </BinaryExpression.Left>
+                            <BinaryExpression.Right>
+                              <BinaryExpression
+                                NodeType="Equal">
+                                <BinaryExpression.Left>
+                                  <ChainExpression>
+                                    <MemberExpression
+                                      Member="create_date" />
+                                  </ChainExpression>
+                                </BinaryExpression.Left>
+                                <BinaryExpression.Right>
+                                  <ParameterExpression
+                                    Parameter="create_date" />
+                                </BinaryExpression.Right>
+                              </BinaryExpression>
+                            </BinaryExpression.Right>
+                          </BinaryExpression>
+                        </BinaryExpression.Left>
+                        <BinaryExpression.Right>
+                          <BinaryExpression
+                            NodeType="Equal">
+                            <BinaryExpression.Left>
+                              <ChainExpression>
+                                <MemberExpression
+                                  Member="end_ip_address" />
+                              </ChainExpression>
+                            </BinaryExpression.Left>
+                            <BinaryExpression.Right>
+                              <ParameterExpression
+                                Parameter="end_ip_address" />
+                            </BinaryExpression.Right>
+                          </BinaryExpression>
+                        </BinaryExpression.Right>
+                      </BinaryExpression>
+                    </BinaryExpression.Left>
+                    <BinaryExpression.Right>
+                      <BinaryExpression
+                        NodeType="Equal">
+                        <BinaryExpression.Left>
+                          <ChainExpression>
+                            <MemberExpression
+                              Member="start_ip_address" />
+                          </ChainExpression>
+                        </BinaryExpression.Left>
+                        <BinaryExpression.Right>
+                          <ParameterExpression
+                            Parameter="start_ip_address" />
+                        </BinaryExpression.Right>
+                      </BinaryExpression>
+                    </BinaryExpression.Right>
+                  </BinaryExpression>
+                </BinaryExpression.Left>
+                <BinaryExpression.Right>
+                  <BinaryExpression
+                    NodeType="Equal">
+                    <BinaryExpression.Left>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="name" />
+                      </ChainExpression>
+                    </BinaryExpression.Left>
+                    <BinaryExpression.Right>
+                      <ParameterExpression
+                        Parameter="name" />
+                    </BinaryExpression.Right>
+                  </BinaryExpression>
+                </BinaryExpression.Right>
+              </BinaryExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <BinaryExpression
+                NodeType="Equal">
+                <BinaryExpression.Left>
+                  <ChainExpression>
+                    <MemberExpression
+                      Member="id" />
+                  </ChainExpression>
+                </BinaryExpression.Left>
+                <BinaryExpression.Right>
+                  <ParameterExpression
+                    Parameter="id" />
+                </BinaryExpression.Right>
+              </BinaryExpression>
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="database_firewall_rules" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="id"
+        ParameterType="Microsoft.LightSwitch:Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+      <QueryOperationParameter
+        Name="name"
+        ParameterType="Microsoft.LightSwitch:String?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'name' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+      <QueryOperationParameter
+        Name="start_ip_address"
+        ParameterType="Microsoft.LightSwitch:String?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'start_ip_address' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+      <QueryOperationParameter
+        Name="end_ip_address"
+        ParameterType="Microsoft.LightSwitch:String?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'end_ip_address' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+      <QueryOperationParameter
+        Name="create_date"
+        ParameterType="Microsoft.LightSwitch:DateTime?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'create_date' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+      <QueryOperationParameter
+        Name="modify_date"
+        ParameterType="Microsoft.LightSwitch:DateTime?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'modify_date' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+  </EntityContainer>
+  <DataService
+    Name="scorebanner21DataDataService">
+    <DataService.Attributes>
+      <Partial />
+    </DataService.Attributes>
+    <EntitySetMapping
+      EntitySet="database_firewall_rules">
+      <EntitySetMapping.Attributes>
+        <SsdlEntitySet
+          Schema="sys"
+          Table="database_firewall_rules" />
+        <IsView />
+        <SsdlProperty
+          Name="id"
+          Nullable="False"
+          StoreGeneratedPattern="Identity"
+          Type="int"
+          Property="database_firewall_rule/Properties[id]" />
+        <SsdlProperty
+          MaxLength="128"
+          Name="name"
+          Nullable="False"
+          Type="nvarchar"
+          Property="database_firewall_rule/Properties[name]" />
+        <SsdlProperty
+          MaxLength="45"
+          Name="start_ip_address"
+          Nullable="False"
+          Type="varchar"
+          Property="database_firewall_rule/Properties[start_ip_address]" />
+        <SsdlProperty
+          MaxLength="45"
+          Name="end_ip_address"
+          Nullable="False"
+          Type="varchar"
+          Property="database_firewall_rule/Properties[end_ip_address]" />
+        <SsdlProperty
+          Name="create_date"
+          Nullable="False"
+          Type="datetime"
+          Property="database_firewall_rule/Properties[create_date]" />
+        <SsdlProperty
+          Name="modify_date"
+          Nullable="False"
+          Type="datetime"
+          Property="database_firewall_rule/Properties[modify_date]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+  </DataService>
+</ServiceApplication>
